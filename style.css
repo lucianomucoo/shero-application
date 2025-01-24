@@ -71,11 +71,13 @@ header.hero-section {
 }
 
 .product-item {
-  flex: 0 1 300px;
+  flex: 0 0 300px;
+  margin: 0 10px;
   text-align: center;
   background-color: #fff;
   padding: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .product-item:hover {
@@ -110,4 +112,63 @@ header.hero-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  position: relative;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-track.no-transition {
+  transition: none;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.carousel-button.prev { left: 10px; }
+.carousel-button.next { right: 10px; }
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+}
+
+.indicator.active {
+  background: #333;
+}
+
+@media (max-width: 768px) {
+  .product-item {
+    flex: 0 0 250px;
+  }
 }
